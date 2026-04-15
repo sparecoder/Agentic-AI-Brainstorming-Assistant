@@ -4,4 +4,12 @@ sqlalchemy==2.0.36
 pydantic-settings==2.7.1
 langchain-groq
 langchain-core
+langchain-huggingface
+langchain-chroma
+langgraph
+chromadb
+sentence-transformers
+langchain-text-splitters
+pypdf
+python-multipart
 python-dotenv==1.0.1

@@ -7,6 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.database import init_db
 from app.routes import router
+from app.routes_rag import router as rag_router
 
 # Configure logging
 logging.basicConfig(
@@ -28,19 +29,15 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(
     title="Agentic AI Idea Brainstorming Assistant",
-    description="Multi-step agentic pipeline for generating, refining, and ranking project ideas.",
-    version="1.0.0",
+    description="Multi-agent pipeline with RAG for generating, refining, and ranking ideas across any domain.",
+    version="2.0.0",
     lifespan=lifespan,
 )
 
-# CORS — allow frontend dev server
+# CORS — allow all origins for production flexibility (essential for Vercel + HF)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:5173",
-        "http://127.0.0.1:5173",
-        "http://localhost:3000",
-    ],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -48,8 +45,9 @@ app.add_middleware(
 
 # Include API routes
 app.include_router(router)
+app.include_router(rag_router)
 
 
 @app.get("/")
 def root():
-    return {"message": "Agentic AI Brainstorming API", "docs": "/docs"}
+    return {"message": "Agentic AI Brainstorming API v2.0", "docs": "/docs"}

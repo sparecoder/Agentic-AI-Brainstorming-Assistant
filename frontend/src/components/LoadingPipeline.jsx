@@ -1,8 +1,10 @@
 const STEPS = [
-  { label: 'Extracting Context', desc: 'Analyzing your prompt...' },
-  { label: 'Generating Ideas', desc: 'Creating diverse project concepts...' },
-  { label: 'Deduplicating', desc: 'Ensuring fresh, unique ideas...' },
-  { label: 'Refining & Ranking', desc: 'Scoring by feasibility, novelty & impact...' },
+  { label: 'Planner Agent', desc: 'Analyzing intent and extracting domain context...' },
+  { label: 'Researcher Agent', desc: 'Querying vector database for knowledge grounding...' },
+  { label: 'Ideator Agent', desc: 'Generating diverse project concepts...' },
+  { label: 'Memory Agent', desc: 'Semantic deduplication against past sessions...' },
+  { label: 'Critic Agent', desc: 'Evaluating feasibility, scalability & impact...' },
+  { label: 'Refiner Agent', desc: 'Expanding top ideas into detailed proposals...' },
 ];
 
 export default function LoadingPipeline() {

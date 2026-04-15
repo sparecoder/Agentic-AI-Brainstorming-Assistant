@@ -5,6 +5,12 @@ __pycache__/
 *.env
 brainstorm.db
 
+# Production Data
+backend/chroma_db/
+backend/uploads/
+uploads/
+chroma_db/
+
 # Node
 node_modules/
 dist/
@@ -16,3 +22,4 @@ dist/
 # OS
 .DS_Store
 Thumbs.db
+*.log
