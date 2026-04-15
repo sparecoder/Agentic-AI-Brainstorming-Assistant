@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field
-from typing import Optional, List
+from typing import Optional, List, Union
 from datetime import datetime
 
 
@@ -43,7 +43,7 @@ class ExtractedContext(BaseModel):
     sub_domains: Optional[List[str]] = None
     complexity: str
     timeline: str
-    target_users: str
+    target_users: Union[str, List[str]]
     keywords: List[str]
     constraints: Optional[List[str]] = None
     research_questions: Optional[List[str]] = None
